@@ -2,10 +2,8 @@
 //  Album.swift
 //  ItunesSearchApp
 //
-//  Created by Anmol  Jandaur on 12/27/22.
+//  Created by Karin Prater on 25.07.22.
 //
-
-import Foundation
 
 import Foundation
 
@@ -17,8 +15,7 @@ struct AlbumResult: Codable {
 
 // MARK: - Result
 struct Album: Codable, Identifiable {
-    let wrapperType: String
-    let collectionType: String?
+    let wrapperType, collectionType: String
     let id: Int
     let artistID: Int
     let amgArtistID: Int?

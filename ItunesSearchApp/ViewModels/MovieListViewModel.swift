@@ -9,68 +9,67 @@ import Foundation
 import Combine
 
 class MovieListViewModel: ObservableObject {
-        
-        @Published var searchTerm: String = ""
-       
-        @Published var state: FetchState = .good
-        
-        @Published var movies: [Movie] = [Movie]()
-        
-        let limit = 20
-        var page: Int = 0
-        
-        
+    
+    @Published var searchTerm: String = ""
+    @Published var movies: [Movie] = [Movie]()
+    @Published var state: FetchState = .good
+    
+    private let service = APIService()
+    
     var subscriptions = Set<AnyCancellable>()
     
     init() {
-        
+
         $searchTerm
+            .removeDuplicates()
             .dropFirst()
+            .removeDuplicates()
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink { [weak self] term in
-                self?.movies = []
                 self?.state = .good
-                self?.fetchMovie(for: term)
-                
+                self?.movies = []
+                self?.fetchMovies(for: term)
             }.store(in: &subscriptions)
+        
     }
     
-    
-        let service = APIService()
+    func fetchMovies(for searchTerm: String) {
         
-        func fetchMovie(for searchTerm: String) {
-            
-            guard !searchTerm.isEmpty else { return }
-            
-            guard state == FetchState.good else { return }
-           
-            
-            state = .isLoading
-            
-           
-            service.fetchMovies(searchTerm: searchTerm, page: page, limit: limit) { [weak self] result in
-                DispatchQueue.main.async {
-                    switch result {
-                        
+        guard !searchTerm.isEmpty else {
+            return
+        }
+        
+        guard state == FetchState.good else {
+            return
+        }
+        
+        state = .isLoading
+        
+        service.fetchMovies(searchTerm: searchTerm) { [weak self]  result in
+            DispatchQueue.main.async {
+                switch result {
                     case .success(let results):
-                        for movie in results.results {
-                            self?.movies.append(movie)
+                        self?.movies = results.results
+                
+                        if results.resultCount == 0 {
+                            self?.state = .noResults
+                        } else {
+                            self?.state = .good
                         }
-                        
-                        self?.page += 1
-                        self?.state = (results.results.count == self?.limit) ? .good : .loadedAll
-                        print("fetched \(results.resultCount)")
+                      
+                        print("fetched movies \(results.resultCount) - \(results.results.count)")
                         
                     case .failure(let error):
-                        self?.state = .error("Could not load \(error.localizedDescription)")
-                    }
+                        print("error loading movies: \(error)")
+                        self?.state = .error(error.localizedDescription)
                 }
             }
-            
         }
+    }
     
     func loadMore() {
-        fetchMovie(for: searchTerm)
+        fetchMovies(for: searchTerm)
     }
     
-    }
+  
+}

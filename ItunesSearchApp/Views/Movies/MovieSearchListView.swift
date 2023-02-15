@@ -16,7 +16,7 @@ struct MovieSearchListView: View {
             
             Group {
                 if viewModel.searchTerm.isEmpty {
-                    AlbumPlaceHolderView(searchTerm: $viewModel.searchTerm)
+                    SearchPlaceholderView(searchTerm: $viewModel.searchTerm)
                 } else {
                     MovieListView(viewModel: viewModel)
                 }

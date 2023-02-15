@@ -1,21 +1,20 @@
 //
-//  MovieListView.swift
+//  SongListView.swift
 //  ItunesSearchApp
 //
-//  Created by Anmol  Jandaur on 2/6/23.
+//  Created by Anmol  Jandaur on 2/14/23.
 //
 
 import SwiftUI
 
-struct MovieListView: View {
-    
-    @ObservedObject var viewModel: MovieListViewModel
+struct SongListView: View {
+    @ObservedObject var viewModel: SongListViewModel
 
     var body: some View {
             List {
                 
-                ForEach(viewModel.movies) { movie in
-                    Text(movie.trackName)
+                ForEach(viewModel.songs) { song in
+                    Text(song.trackName)
                 }
                 
                 switch viewModel.state {
@@ -45,11 +44,10 @@ struct MovieListView: View {
             .listStyle(.plain)
         
     }
-
 }
 
-struct MovieListView_Previews: PreviewProvider {
+struct SongListView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieListView(viewModel: MovieListViewModel())
+        SongListView(viewModel: SongListViewModel())
     }
 }

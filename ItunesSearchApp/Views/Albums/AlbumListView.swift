@@ -37,6 +37,9 @@ struct AlbumListView: View {
                 case .error(let message):
                     Text(message)
                         .foregroundColor(.pink)
+                case .noResults:
+                    Text("No Results")
+                        .foregroundColor(.pink)
                 }
             }
             .listStyle(.plain)

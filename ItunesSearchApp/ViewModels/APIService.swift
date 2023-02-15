@@ -19,8 +19,8 @@ class APIService {
         fetch(type: AlbumResult.self, url: url, completion: completion)
     }
     
-    func fetchMovies(searchTerm: String, page: Int, limit: Int, completion: @escaping (Result<MovieResult, APIError>) -> Void) {
-        let url = createURL(for: searchTerm, type: .movie, page: page, limit: limit)
+    func fetchMovies(searchTerm: String, completion: @escaping (Result<MovieResult, APIError>) -> Void) {
+        let url = createURL(for: searchTerm, type: .movie, page: nil, limit: nil)
         fetch(type: MovieResult.self, url: url, completion: completion)
     }
     

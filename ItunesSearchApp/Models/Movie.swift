@@ -2,7 +2,7 @@
 //  Movie.swift
 //  ItunesSearchApp
 //
-//  Created by Anmol  Jandaur on 12/27/22.
+//  Created by Karin Prater on 25.07.22.
 //
 
 import Foundation
@@ -21,15 +21,17 @@ struct Movie: Codable, Identifiable {
     let artistName, trackName, trackCensoredName: String
     let artistViewURL: String?
     let trackViewURL: String
-    let previewURL: String
+    let previewURL: String?
     let artworkUrl30, artworkUrl60, artworkUrl100: String
-    let collectionPrice, trackPrice: Double
+    let collectionPrice: Double?
+    let trackPrice: Double?
     let trackRentalPrice, collectionHDPrice, trackHDPrice, trackHDRentalPrice: Double?
-    let releaseDate: Date
+    let releaseDate: String
     let collectionExplicitness, trackExplicitness: String
-    let trackTimeMillis: Int
+    let trackTimeMillis: Int?
     let country, currency, primaryGenreName, contentAdvisoryRating: String
-    let shortDescription, longDescription: String
+    let shortDescription: String?
+    let longDescription: String?
     
     var id: Int {
         return trackID
