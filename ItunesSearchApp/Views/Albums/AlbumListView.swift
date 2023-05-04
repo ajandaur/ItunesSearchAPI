@@ -15,7 +15,11 @@ struct AlbumListView: View {
             List {
                 
                 ForEach(viewModel.albums) { album in
-                    Text(album.collectionName)
+                    
+                    NavigationLink(value: album) {
+                        AlbumRowView(album: album)
+                    }
+                   
                 }
                 
                 switch viewModel.state {
@@ -43,6 +47,10 @@ struct AlbumListView: View {
                 }
             }
             .listStyle(.plain)
+        
+            .navigationDestination(for: Album.self) { album in
+                AlbumDetailView(album: album)
+            }
         
     }
 

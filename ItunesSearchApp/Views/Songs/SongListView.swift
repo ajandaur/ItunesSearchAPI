@@ -8,46 +8,42 @@
 import SwiftUI
 
 struct SongListView: View {
+    
     @ObservedObject var viewModel: SongListViewModel
-
+    
     var body: some View {
-            List {
-                
-                ForEach(viewModel.songs) { song in
-                    Text(song.trackName)
-                }
-                
-                switch viewModel.state {
+        
+        List {
+            ForEach(viewModel.songs) { song in
+               SongRowView(song: song)
+            }
+            
+            switch viewModel.state {
                 case .good:
                     Color.clear
                         .onAppear {
                             viewModel.loadMore()
                         }
-                    
                 case .isLoading:
                     ProgressView()
                         .progressViewStyle(.circular)
                         .frame(maxWidth: .infinity)
-                    
                 case .loadedAll:
-//                    EmptyView()
-                    Color.gray
-                    
+                    EmptyView()
                 case .error(let message):
                     Text(message)
                         .foregroundColor(.pink)
-                case .noResults:
-                    Text("No Results")
-                        .foregroundColor(.pink)
-                }
+            case .noResults:
+                EmptyView()
             }
-            .listStyle(.plain)
+        }
+        .listStyle(.plain)
         
     }
 }
 
 struct SongListView_Previews: PreviewProvider {
     static var previews: some View {
-        SongListView(viewModel: SongListViewModel())
+        SongListView(viewModel: SongListViewModel.example())
     }
 }
