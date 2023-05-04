@@ -47,6 +47,9 @@ struct AlbumDetailView: View {
             
             SongForAlbumListView(songsViewModel: songsViewModel)
         }
+        .onAppear {
+            songsViewModel.fetch()
+        }
        
         }
       

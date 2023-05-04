@@ -9,7 +9,7 @@ import Foundation
 
 class SongsForAlbumListViewModel: ObservableObject {
     
-    let albumID: Int?
+    let albumID: Int
     @Published var songs = [Song]()
     @Published var state: FetchState = .good 
     
@@ -17,6 +17,12 @@ class SongsForAlbumListViewModel: ObservableObject {
     
     init(albumID: Int) {
         self.albumID = albumID
+        
+        print("init for songs for album \(albumID)")
+    }
+    
+    func fetch() {
+        fetchSongs(for: albumID)
     }
     
     func fetchSongs(for albumID: Int) {
