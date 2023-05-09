@@ -9,13 +9,13 @@ import Foundation
 
 
 // MARK: - SonResult
-struct SongResult: Codable {
+struct SongResult: Codable, Hashable {
     let resultCount: Int
     let results: [Song]
 }
 
 // MARK: - Result
-struct Song: Codable, Identifiable {
+struct Song: Codable, Identifiable, Hashable, Equatable {
     let wrapperType: String
     let artistID: Int
     let collectionID: Int

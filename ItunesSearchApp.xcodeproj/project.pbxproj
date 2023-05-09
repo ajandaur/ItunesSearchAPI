@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		873D92E32A03455E00A2EA0B /* SongsForAlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873D92E22A03455E00A2EA0B /* SongsForAlbumListViewModel.swift */; };
 		873D92E52A034FF600A2EA0B /* SongForAlbumListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873D92E42A034FF600A2EA0B /* SongForAlbumListView.swift */; };
+		873D92E72A05EDC100A2EA0B /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873D92E62A05EDC100A2EA0B /* SongDetailView.swift */; };
+		873D92E92A0607BC00A2EA0B /* AlbumForSongViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873D92E82A0607BC00A2EA0B /* AlbumForSongViewModel.swift */; };
 		874D37BD2991ED5A001E8836 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D37BC2991ED5A001E8836 /* APIError.swift */; };
 		874D37BF2991F276001E8836 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D37BE2991F276001E8836 /* APIService.swift */; };
 		874D37C62991FA2E001E8836 /* SongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D37C52991FA2E001E8836 /* SongListViewModel.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		873D92E22A03455E00A2EA0B /* SongsForAlbumListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsForAlbumListViewModel.swift; sourceTree = "<group>"; };
 		873D92E42A034FF600A2EA0B /* SongForAlbumListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongForAlbumListView.swift; sourceTree = "<group>"; };
+		873D92E62A05EDC100A2EA0B /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
+		873D92E82A0607BC00A2EA0B /* AlbumForSongViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumForSongViewModel.swift; sourceTree = "<group>"; };
 		874D37BC2991ED5A001E8836 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		874D37BE2991F276001E8836 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		874D37C52991FA2E001E8836 /* SongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewModel.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				8765A91129A46197001F3511 /* SongSectionView.swift */,
 				874D380A299C82B4001E8836 /* SongListView.swift */,
 				87D5BB8929A17B42003AA360 /* SongRowView.swift */,
+				873D92E62A05EDC100A2EA0B /* SongDetailView.swift */,
 			);
 			path = Songs;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				874D37C92991FB5A001E8836 /* MovieListViewModel.swift */,
 				874D37C52991FA2E001E8836 /* SongListViewModel.swift */,
 				873D92E22A03455E00A2EA0B /* SongsForAlbumListViewModel.swift */,
+				873D92E82A0607BC00A2EA0B /* AlbumForSongViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -321,12 +327,14 @@
 				87D5BB8A29A17B42003AA360 /* SongRowView.swift in Sources */,
 				87F6FF47295BCA58002CAA04 /* Movie.swift in Sources */,
 				87F6FF30295BC885002CAA04 /* ItunesSearchAppApp.swift in Sources */,
+				873D92E72A05EDC100A2EA0B /* SongDetailView.swift in Sources */,
 				87F6FF41295BC8AA002CAA04 /* Album.swift in Sources */,
 				874D37BF2991F276001E8836 /* APIService.swift in Sources */,
 				87D5BB9429A18316003AA360 /* AlbumRowView.swift in Sources */,
 				87D5BB8D29A17B60003AA360 /* ImageLoadingView.swift in Sources */,
 				87539A2429B052F600AFEC7D /* AlbumDetailView.swift in Sources */,
 				873D92E52A034FF600A2EA0B /* SongForAlbumListView.swift in Sources */,
+				873D92E92A0607BC00A2EA0B /* AlbumForSongViewModel.swift in Sources */,
 				874D3801299C79EF001E8836 /* SearchView.swift in Sources */,
 				87F6FF45295BCA53002CAA04 /* Song.swift in Sources */,
 				87F6FF49295BCC25002CAA04 /* AlbumListView.swift in Sources */,

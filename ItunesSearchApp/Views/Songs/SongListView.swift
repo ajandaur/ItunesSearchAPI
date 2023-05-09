@@ -15,7 +15,12 @@ struct SongListView: View {
         
         List {
             ForEach(viewModel.songs) { song in
-               SongRowView(song: song)
+                
+                NavigationLink {
+                    SongDetailView(song: song)
+                } label: {
+                    SongRowView(song: song)
+                }
             }
             
             switch viewModel.state {
@@ -36,6 +41,7 @@ struct SongListView: View {
             case .noResults:
                 EmptyView()
             }
+            
         }
         .listStyle(.plain)
         
